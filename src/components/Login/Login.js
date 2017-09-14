@@ -9,11 +9,17 @@ export const Login = ({ login }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input name="username" placeholder="username" />
-        <input name="password" type="password" placeholder="password" />
-        <input type="submit" value="Login" />
+    <div id="landing-container">
+      <form id="landing-form" onSubmit={handleSubmit}>
+        <div className='landing-flex'>
+          <h4>Valet Login:</h4>
+        </div>
+        <input className="landing-input" name="username" placeholder="username" />
+        <input className="landing-input" name="password" type="password" placeholder="password" />
+        <br/>
+        <div className='landing-flex'>
+          <input type="submit" value="Login" />
+        </div>
       </form>
     </div>
   );
@@ -22,3 +28,9 @@ export const Login = ({ login }) => {
 const mapDispatchToProps = { login };
 
 export default connect(null, mapDispatchToProps)(Login);
+
+
+  // <div class="landing-form">
+  //   <input id="usrname" type="text" name="username" placeholder="Username">
+  //   <input id="pword" type="password" name="password" placeholder="Password">
+  // </div>

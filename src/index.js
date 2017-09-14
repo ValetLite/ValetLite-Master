@@ -11,6 +11,7 @@ import './index.css';
 import VehiclePostsIndex from './components/VehiclePosts/vehicle_posts_index';
 import VehiclePostsNew from './components/VehiclePosts/vehicle_posts_new';
 import VehiclePostsShow from './components/VehiclePosts/vehicle_posts_show';
+import Login from './components/Login/Login';
 
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
@@ -22,6 +23,7 @@ ReactDOM.render(
     <BrowserRouter>
     <div>
       <Switch>
+      <Route exact path='/' component={Login} />
       <Route path='/vehicles/new' component={VehiclePostsNew} />
       <Route path='/vehicles/:id' component={VehiclePostsShow} />
       <Route path='/vehicles' component={VehiclePostsIndex} />
