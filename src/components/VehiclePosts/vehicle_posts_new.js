@@ -51,6 +51,41 @@ class VehiclePostsNew extends Component {
           name="year"
           component={this.renderField}
         />
+        <Field
+          label="Color"
+          name="color"
+          component={this.renderField}
+        />
+        <Field
+          label="Plate"
+          name="plate"
+          component={this.renderField}
+        />
+        <Field
+          label="Owner"
+          name="owner"
+          component={this.renderField}
+        />
+        <Field
+          label="Phone"
+          name="phone"
+          component={this.renderField}
+        />
+        <Field
+          label="Space"
+          name="space"
+          component={this.renderField}
+        />
+        <Field
+          label="Photo"
+          name="photo"
+          component={this.renderField}
+        />
+        <Field
+          label="Comments"
+          name="comments"
+          component={this.renderField}
+        />
         <button type="submit" className="btn btn-primary">Submit</button>
         <Link to="/vehicles" className="btn btn-danger">Cancel</Link>
         </form>
@@ -70,6 +105,26 @@ class VehiclePostsNew extends Component {
     }
     if(!values.year) {
       errors.year="Enter the year!";
+    }
+    if(!values.color) {
+      errors.color="Enter a vehicle color!";
+    }
+    if(!values.plate) {
+      errors.plate="Enter the license plate number!";
+    }
+    if(!values.owner) {
+      errors.owner="Enter the owner's name!";
+    }if(!values.phone) {
+      errors.phone="Enter a the owner's phone number!";
+    }
+    if(!values.space) {
+      errors.space="Enter the parking space number!";
+    }
+    if(!values.photo) {
+      errors.photo="Enter a link to a photo!";
+    }
+    if(!values.comments) {
+      errors.comments="Enter relevant comments!";
     }
 
     return errors;
