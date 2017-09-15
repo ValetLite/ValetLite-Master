@@ -1,8 +1,8 @@
 module.exports = {
   create: (req, res, next) => {
     const dbInstance = req.app.get('db');
-    const { make, model, year, color, plate, owner, phone, space } = req.body;
-     dbInstance.create_vehicle([ make, model, year, color, plate, owner, phone, space ])
+    const { make, model, year, color, plate, owner, phone, space, photo, comments } = req.body;
+     dbInstance.create_vehicle([ make, model, year, color, plate, owner, phone, space, photo, comments ])
       .then( () => res.status(200).send() )
       .catch( (err) => res.status(500).send(err) );
   },
@@ -19,7 +19,7 @@ module.exports = {
     const dbInstance = req.app.get('db');
     dbInstance.read_vehicles()
       .then( (vehicles) => res.status(200).send(vehicles) )
-      .catch( () => res.status(500).send() );
+      .catch( (err) => res.status(500).send(err) );
   },
 
   update: ( req, res, next ) => {
@@ -27,7 +27,7 @@ module.exports = {
     const { params, query } = req;
     dbInstance.update_vehicle([ params.id, query.desc ])
       .then( () => res.status(200).send() )
-      .catch( () => res.status(500).send() );
+      .catch( (err) => res.status(500).send(err) );
   },
 
   delete: ( req, res, next ) => {

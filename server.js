@@ -5,7 +5,7 @@ const request = require('request');
 const cors = require('cors');
 const massive = require('massive');
 const config = require('./config');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 
@@ -34,7 +34,7 @@ app.post( '/api/vehicles', db_vehicle_control.create );
 app.get( '/api/vehicles', db_vehicle_control.getAll );
 app.get( '/api/vehicle/:id', db_vehicle_control.getOne );
 
-app.put( '/api/vehicles/:id', db_vehicle_control.update );
+app.put( '/api/vehicle/:id', db_vehicle_control.update );
 
 app.delete( '/api/vehicle/:id', db_vehicle_control.delete );
 
