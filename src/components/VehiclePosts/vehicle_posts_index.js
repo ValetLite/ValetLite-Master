@@ -15,7 +15,7 @@ class VehiclePostsIndex extends Component {
       return (
         <li className="list-group-item" key={post.id}>
         <Link to={`/vehicles/${post.id}`}>
-          {post.name}
+          {post.owner}
         </Link>
         </li>
       );
@@ -30,7 +30,7 @@ class VehiclePostsIndex extends Component {
           <div className="col-md-4 text-center">
           <br />
           <Link className="btn btn-primary" to="/vehicles/new">
-            Add a New Timer
+            Add a New Vehicle
           </Link>
           </div>
           </div>

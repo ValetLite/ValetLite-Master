@@ -6,7 +6,7 @@ export const CREATE_VEHICLE = 'create_vehicle';
 export const DELETE_VEHICLE = 'delete_vehicle';
 
 
-const ROOT_URL = 'http://localhost:3000/api';
+const ROOT_URL = 'http://localhost:3001/api';
 
 export function fetchVehicles() {
   const request = axios.get(`${ROOT_URL}/vehicles`);
