@@ -1,1 +1,1 @@
-SELECT * FROM vehicles;
+SELECT * FROM vehicles WHERE id = $1;
