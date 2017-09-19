@@ -8,9 +8,11 @@ import ValetsIndex from '../Valets/valets_index';
 import VehiclePostsIndex from '../VehiclePosts/vehicle_posts_index';
 import VehiclePostsNew from '../VehiclePosts/vehicle_posts_new';
 import VehiclePostsShow from '../VehiclePosts/vehicle_posts_show';
+import Admin from '../Admin'
 
 export default class Routing extends Component{
   render(){
+    const FourOhFour=()=><h1>404</h1>
     return <BrowserRouter>
       <Switch>
         <Route exact path='/' component={Login} />
@@ -20,6 +22,8 @@ export default class Routing extends Component{
         <Route path='/vehicles/new' component={VehiclePostsNew} />
         <Route path='/vehicles/:id' component={VehiclePostsShow} />
         <Route path='/vehicles' component={VehiclePostsIndex} />
+        <Route path='/admin' component={Admin} />
+        <Route component={FourOhFour} />
       </Switch>
     </BrowserRouter>
   }
