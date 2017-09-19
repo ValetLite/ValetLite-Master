@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
-import Login from '../Login/Login'
+
+import Login from '../Login/Login';
+import NavBar from '../Navbar/NavBar';
+import Retrieval from '../RetrieveCar/RetrieveCar.js';
+
 import ValetAdd from '../Valets/valets_add';
 import ValetDetails from '../Valets/valets_details';
 import ValetsIndex from '../Valets/valets_index';
@@ -14,6 +18,7 @@ export default class Routing extends Component{
     return <BrowserRouter>
       <Switch>
         <Route exact path='/' component={Login} />
+        <Route path='/retrieval' component={NavBar} />
         <Route path='/valets/new' component={ValetAdd} />
         <Route path='/valets/:id' component={ValetDetails} />
         <Route path='/valets' component={ValetsIndex} />
