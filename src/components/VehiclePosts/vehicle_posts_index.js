@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchVehicles } from '../../actions';
+import NavBar from '../NavBar/NavBar2';
 
 
 class VehiclePostsIndex extends Component {
@@ -40,6 +41,7 @@ class VehiclePostsIndex extends Component {
           <ul className="list-group">
             {this.renderPosts()}
           </ul>
+          <NavBar />
         </div>
       );
     }
