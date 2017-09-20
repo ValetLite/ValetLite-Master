@@ -5,7 +5,7 @@ const request = require('request');
 const cors = require('cors');
 const massive = require('massive');
 const config = require('./config');
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5555;
 const app = express();
 
 

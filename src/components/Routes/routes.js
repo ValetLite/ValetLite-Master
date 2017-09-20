@@ -26,12 +26,12 @@ export default class Routing extends Component{
         <Route path='/retrieval' component={RetrieveCar} />
         <Route path='/storage' component={StoreCar} />
         <Route path='/carsoutside' component={CarsOutside} />
-        <Route path='/vehicles' component={VehiclePostsIndex} />
         <Route path='/valets/new' component={ValetAdd} />
         <Route path='/valets/:id' component={ValetDetails} />
         <Route path='/valets' component={ValetsIndex} />
         <Route path='/vehicles/new' component={VehiclePostsNew} />
         <Route path='/vehicles/:id' component={VehiclePostsShow} />
+        <Route path='/vehicles' component={VehiclePostsIndex} />
         <Route path='/admin' component={Admin} />
         <Route component={FourOhFour} />
       </Switch>
