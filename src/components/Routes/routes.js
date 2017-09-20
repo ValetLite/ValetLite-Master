@@ -3,8 +3,11 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 
 import Login from '../Login/Login';
-import NavBar from '../Navbar/NavBar';
-import Retrieval from '../RetrieveCar/RetrieveCar.js';
+// import NavBar from '../Navbar/NavBar2';
+import RetrieveCar from '../RetrieveCar/RetrieveCar.js';
+import StoreCar from '../StoreCar/StoreCar.js';
+import CarsInside from '../CarsInside/CarsInside.js';
+import CarsOutside from '../CarsOutside/CarsOutside.js';
 
 import ValetAdd from '../Valets/valets_add';
 import ValetDetails from '../Valets/valets_details';
@@ -18,7 +21,10 @@ export default class Routing extends Component{
     return <BrowserRouter>
       <Switch>
         <Route exact path='/' component={Login} />
-        <Route path='/retrieval' component={NavBar} />
+        <Route path='/retrieval' component={RetrieveCar} />
+        <Route path='/storage' component={StoreCar} />
+        <Route path='/carsinside' component={CarsInside} />
+        <Route path='/carsoutside' component={CarsOutside} />
         <Route path='/valets/new' component={ValetAdd} />
         <Route path='/valets/:id' component={ValetDetails} />
         <Route path='/valets' component={ValetsIndex} />

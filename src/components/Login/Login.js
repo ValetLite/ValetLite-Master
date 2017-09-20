@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import { login } from './LoginActionCreator';
-import navbar from '../Navbar/navbar';
 
 export const Login = ({ login }) => {
   const handleSubmit = (evt) => {
@@ -24,7 +23,6 @@ export const Login = ({ login }) => {
           <input type="submit" value="Login" />
         </div>
       </form>
-      <navbar />
     </div>
   );
 };
