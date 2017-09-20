@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import RaisedButton from 'material-ui/RaisedButton';
 import { login } from './LoginActionCreator';
+
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 
 export const Login = ({ login }) => {
   const handleSubmit = (evt) => {
@@ -15,12 +17,12 @@ export const Login = ({ login }) => {
         <div className='landing-flex'>
           <h4>Valet Login:</h4>
         </div>
-        <input className="landing-input" name="username" placeholder="username" />
-        <input className="landing-input" name="password" type="password" placeholder="password" />
-        <br/>
+        <div >
+          <TextField hintText="Username" className='landing-input' />
+          <TextField hintText="Password" className='landing-input'/>
+        </div>
         <div className='landing-flex'>
-          <RaisedButton label="Primary" primary={true} style={{margin: 12}} />
-          <input type="submit" value="Login" />
+          <RaisedButton label="Login" primary={true} style={{margin: 12}} />
         </div>
       </form>
     </div>
@@ -31,6 +33,7 @@ const mapDispatchToProps = { login };
 
 export default connect(null, mapDispatchToProps)(Login);
 
+          // <input type="submit" value="Login" />
 
   // <div class="landing-form">
   //   <input id="usrname" type="text" name="username" placeholder="Username">

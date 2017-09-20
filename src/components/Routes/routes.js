@@ -6,13 +6,13 @@ import Login from '../Login/Login';
 // import NavBar from '../Navbar/NavBar2';
 import RetrieveCar from '../RetrieveCar/RetrieveCar.js';
 import StoreCar from '../StoreCar/StoreCar.js';
-import CarsInside from '../CarsInside/CarsInside.js';
+import VehiclePostsIndex from '../VehiclePosts/vehicle_posts_index';
+// import CarsInside from '../CarsInside/CarsInside.js';
 import CarsOutside from '../CarsOutside/CarsOutside.js';
 
 import ValetAdd from '../Valets/valets_add';
 import ValetDetails from '../Valets/valets_details';
 import ValetsIndex from '../Valets/valets_index';
-import VehiclePostsIndex from '../VehiclePosts/vehicle_posts_index';
 import VehiclePostsNew from '../VehiclePosts/vehicle_posts_new';
 import VehiclePostsShow from '../VehiclePosts/vehicle_posts_show';
 import Admin from '../Admin'
@@ -25,17 +25,19 @@ export default class Routing extends Component{
         <Route exact path='/' component={Login} />
         <Route path='/retrieval' component={RetrieveCar} />
         <Route path='/storage' component={StoreCar} />
-        <Route path='/carsinside' component={CarsInside} />
         <Route path='/carsoutside' component={CarsOutside} />
+        <Route path='/vehicles' component={VehiclePostsIndex} />
         <Route path='/valets/new' component={ValetAdd} />
         <Route path='/valets/:id' component={ValetDetails} />
         <Route path='/valets' component={ValetsIndex} />
         <Route path='/vehicles/new' component={VehiclePostsNew} />
         <Route path='/vehicles/:id' component={VehiclePostsShow} />
-        <Route path='/vehicles' component={VehiclePostsIndex} />
         <Route path='/admin' component={Admin} />
         <Route component={FourOhFour} />
       </Switch>
     </BrowserRouter>
   }
 }
+
+
+        // <Route path='/carsinside' component={CarsInside} />
