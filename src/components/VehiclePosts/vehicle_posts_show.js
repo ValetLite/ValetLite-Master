@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchVehicle, deleteVehicle } from '../../actions';
-import MyNav from '../Navbar/Navbar';
 
 
 
@@ -30,7 +29,6 @@ class VehiclePostsShow extends Component {
 
     return (
       <div>
-      <MyNav />
       <div className="text-center jumbotron">
       <p>Make: {post.make}</p>
       <p>Model: {post.model}</p>
