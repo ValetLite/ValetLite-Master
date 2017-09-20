@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
 import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
+import IconLocationSearching from 'material-ui/svg-icons/device/location-searching';
+import IconLocationStore from 'material-ui/svg-icons/action/store';
+
+
 
 import RetrieveCar from '../RetrieveCar/RetrieveCar.js';
 import StoreCar from '../StoreCar/StoreCar.js';
@@ -13,8 +17,8 @@ import VehiclePostsIndex from '../VehiclePosts/vehicle_posts_index';
 // import CarsInside from '../CarsInside/CarsInside.js';
 import CarsOutside from '../CarsOutside/CarsOutside.js';
 
-const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
-const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
+const recentsIcon = <IconLocationSearching />;
+const favoritesIcon = <IconLocationStore />;
 const nearbyIcon = <IconLocationOn />;
 
 export default class NavBar extends Component {

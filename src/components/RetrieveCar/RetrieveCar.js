@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavBar from '../NavBar/NavBar2';
+import NavBar from '../Navbar/NavBar2';
 import RaisedButton from 'material-ui/RaisedButton';
 
 // import navbar from '../Navbar/navbar';
