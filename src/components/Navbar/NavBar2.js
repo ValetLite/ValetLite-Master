@@ -13,8 +13,8 @@ import VehiclePostsIndex from '../VehiclePosts/vehicle_posts_index';
 // import CarsInside from '../CarsInside/CarsInside.js';
 import CarsOutside from '../CarsOutside/CarsOutside.js';
 
-const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
-const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
+const recentsIcon = <FontIcon className="material-icons"></FontIcon>;
+const favoritesIcon = <FontIcon className="material-icons"></FontIcon>;
 const nearbyIcon = <IconLocationOn />;
 
 export default class NavBar extends Component {
@@ -24,7 +24,7 @@ export default class NavBar extends Component {
       <Paper zDepth={1} style={{bottom: 0, position: 'absolute'}}>
         <BottomNavigation selectedIndex={this.props.selectedIndex}>
           <BottomNavigationItem
-            label="Retrieve Car"
+            label="Retrieve"
             icon={recentsIcon}
             onClick={() => window.location='/retrieval'}
           />
