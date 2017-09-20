@@ -1,3 +1,7 @@
 #landing-form {
   background-color: black;
 }
+
+.landing-input {
+  transform: translateY(50%);
+}

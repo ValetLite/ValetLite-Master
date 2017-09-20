@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchValet, deleteValet } from '../../actions';
-import MyNav from '../Navbar/Navbar';
 
 
 class ValetDetails extends Component {
@@ -29,7 +28,6 @@ class ValetDetails extends Component {
 
     return (
       <div>
-      <MyNav />
       <div className="text-center jumbotron">
       <h3>{post.name}</h3>
       </div>

@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createValet } from '../../actions';
-import MyNav from '../Navbar/Navbar';
+
 
 
 class ValetAdd extends Component {
@@ -34,7 +34,7 @@ class ValetAdd extends Component {
 
       return (
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <MyNav />
+
         <Field
           label="Valet Name"
           name="name"

@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchVehicles } from '../../actions';
-import MyNav from '../Navbar/Navbar';
+import NavBar from '../NavBar/NavBar2';
+
 
 class VehiclePostsIndex extends Component {
   componentDidMount(){
@@ -25,7 +26,7 @@ class VehiclePostsIndex extends Component {
     render() {
       return (
         <div>
-          <MyNav />
+
           <div className="text-xs-right">
           <div className="col-md-4 text-center">
           <br />
@@ -40,6 +41,7 @@ class VehiclePostsIndex extends Component {
           <ul className="list-group">
             {this.renderPosts()}
           </ul>
+          <NavBar />
         </div>
       );
     }
