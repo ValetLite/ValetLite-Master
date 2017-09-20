@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
-import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 import IconLocationSearching from 'material-ui/svg-icons/device/location-searching';
 import IconLocationStore from 'material-ui/svg-icons/action/store';
+import IconDirectionsCar from 'material-ui/svg-icons/maps/directions-car';
+
 
 
 
@@ -19,7 +20,7 @@ import CarsOutside from '../CarsOutside/CarsOutside.js';
 
 const recentsIcon = <IconLocationSearching />;
 const favoritesIcon = <IconLocationStore />;
-const nearbyIcon = <IconLocationOn />;
+const carIcon = <IconDirectionsCar />;
 
 export default class NavBar extends Component {
   render() {
@@ -38,13 +39,13 @@ export default class NavBar extends Component {
             onClick={() => window.location='/storage'}
           />
           <BottomNavigationItem
-            label="Cars Inside"
-            icon={nearbyIcon}
+            label="Inside"
+            icon={carIcon}
             onClick={() => window.location='/vehicles'}
           />
           <BottomNavigationItem
-            label="Cars Outside"
-            icon={nearbyIcon}
+            label="Outside"
+            icon={carIcon}
             onClick={() => window.location='/carsoutside'}
           />
 
