@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchValets } from '../../actions';
-import MyNav from '../Navbar/Navbar';
+
 
 class ValetsIndex extends Component {
   componentDidMount(){
@@ -25,7 +25,6 @@ class ValetsIndex extends Component {
     render() {
       return (
         <div>
-          <MyNav />
           <div className="text-xs-right">
           <div className="col-md-4 text-center">
           <br />

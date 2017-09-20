@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import RaisedButton from 'material-ui/RaisedButton';
 import { login } from './LoginActionCreator';
 
 export const Login = ({ login }) => {
@@ -18,6 +19,7 @@ export const Login = ({ login }) => {
         <input className="landing-input" name="password" type="password" placeholder="password" />
         <br/>
         <div className='landing-flex'>
+          <RaisedButton label="Primary" primary={true} style={{margin: 12}} />
           <input type="submit" value="Login" />
         </div>
       </form>
