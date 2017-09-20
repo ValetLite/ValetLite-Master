@@ -18,38 +18,32 @@ const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
 const nearbyIcon = <IconLocationOn />;
 
 export default class NavBar extends Component {
-  state = {
-    selectedIndex: this.props.selectedIndex,
-  };
   render() {
+    console.log(this.props);
     return (
       <Paper zDepth={1} style={{bottom: 0, position: 'absolute'}}>
-        <BottomNavigation selectedIndex={this.state.selectedIndex}>
-          <Link to='/retrieval'>
-            <BottomNavigationItem
-              label="Retrieve Car"
-              icon={recentsIcon}
-              onClick={this.state.selectedIndex = 0}
-            />
-          </Link>
-          <Link to='/storage'>
-            <BottomNavigationItem
-              label="Store Car"
-              icon={favoritesIcon}
-            />
-          </Link>
-          <Link to='/vehicles'>
-            <BottomNavigationItem
-              label="Cars Inside"
-              icon={nearbyIcon}
-            />
-          </Link>
-          <Link to='/carsoutside'>
-            <BottomNavigationItem
-              label="Cars Outside"
-              icon={nearbyIcon}
-            />
-          </Link>
+        <BottomNavigation selectedIndex={this.props.selectedIndex}>
+          <BottomNavigationItem
+            label="Retrieve Car"
+            icon={recentsIcon}
+            onClick={() => window.location='/retrieval'}
+          />
+          <BottomNavigationItem
+            label="Store Car"
+            icon={favoritesIcon}
+            onClick={() => window.location='/storage'}
+          />
+          <BottomNavigationItem
+            label="Cars Inside"
+            icon={nearbyIcon}
+            onClick={() => window.location='/vehicles'}
+          />
+          <BottomNavigationItem
+            label="Cars Outside"
+            icon={nearbyIcon}
+            onClick={() => window.location='/carsoutside'}
+          />
+
         </BottomNavigation>
       </Paper>
     );
