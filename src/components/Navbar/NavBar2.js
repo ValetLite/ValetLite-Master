@@ -8,6 +8,7 @@ import Paper from 'material-ui/Paper';
 import IconLocationSearching from 'material-ui/svg-icons/device/location-searching';
 import IconLocationStore from 'material-ui/svg-icons/action/store';
 import IconDirectionsCar from 'material-ui/svg-icons/maps/directions-car';
+// import IconLocationOn from 'material-ui/svg-icons/maps/directions-car';
 
 
 
@@ -18,9 +19,15 @@ import VehiclePostsIndex from '../VehiclePosts/vehicle_posts_index';
 // import CarsInside from '../CarsInside/CarsInside.js';
 import CarsOutside from '../CarsOutside/CarsOutside.js';
 
+
+// const recentsIcon = <FontIcon className="material-icons"></FontIcon>;
+// const favoritesIcon = <FontIcon className="material-icons"></FontIcon>;
+// const nearbyIcon = <IconLocationOn />;
+
 const recentsIcon = <IconLocationSearching />;
 const favoritesIcon = <IconLocationStore />;
 const carIcon = <IconDirectionsCar />;
+
 
 export default class NavBar extends Component {
   render() {
@@ -29,7 +36,7 @@ export default class NavBar extends Component {
       <Paper zDepth={1} style={{bottom: 0, position: 'absolute'}}>
         <BottomNavigation selectedIndex={this.props.selectedIndex}>
           <BottomNavigationItem
-            label="Retrieve Car"
+            label="Retrieve"
             icon={recentsIcon}
             onClick={() => window.location='/retrieval'}
           />

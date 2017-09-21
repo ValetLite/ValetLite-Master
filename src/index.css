@@ -51,14 +51,42 @@ body {
 
 .landing-flex input {
   color: white;
-  background-color: rgba(rgba(255,255,255, .3));
-  border-radius: 10px;
+  background-color: rgba(255,255,255, .3);
+  /* border-radius: 10px; */
   border: none;
-  box-shadow: 1px 2px rgba(50,50,50, .3);
+  /* box-shadow: 1px 2px rgba(50,50,50, .3); */
   width: 50%;
   padding: 6px 0;
   margin-bottom: 10px;
   letter-spacing: 3px;
 }
+
+/* retrieve car style */
+
+.ret-car-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 95vh;
+}
+
+.ret-car-form {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-content: center;
+}
+
+#ret-car-id {
+  margin: auto;
+  width: 90% !important;
+  margin-left: 5% !important;
+}
+
+
+
+
+
+
 
 
