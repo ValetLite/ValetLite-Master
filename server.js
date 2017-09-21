@@ -12,6 +12,9 @@ const app = express();
 const db_vehicle_control = require('./db_vehicle_control');
 const db_valets_control = require('./db_valets_control');
 
+const db_admin = require('./db_admin');
+
+
 
 
 app.use(session({
@@ -30,6 +33,7 @@ massive(config.massiveConnectionString).then(dbInstance => {
 })
 
 
+
 app.post( '/api/vehicles', db_vehicle_control.create );
 app.post( '/api/valets', db_valets_control.create );
 
@@ -38,11 +42,15 @@ app.get( '/api/vehicle/:id', db_vehicle_control.getOne );
 app.get( '/api/valets', db_valets_control.getAll );
 app.get( '/api/valet/:id', db_valets_control.getOne );
 
+app.get('/api/ChartData/:start/:end',db_admin.getChartData);
+
+
 app.put( '/api/vehicle/:id', db_vehicle_control.update );
 app.put( '/api/valet/:id', db_valets_control.update );
 
 app.delete( '/api/vehicle/:id', db_vehicle_control.delete );
 app.delete( '/api/valet/:id', db_valets_control.delete );
+
 
 
 
