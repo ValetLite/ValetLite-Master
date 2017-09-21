@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchVehicles } from '../../actions';
-import NavBar from '../Navbar/NavBar2';
+import NavBar from '../NavBar/NavBar2';
 
 
 class VehiclePostsIndex extends Component {

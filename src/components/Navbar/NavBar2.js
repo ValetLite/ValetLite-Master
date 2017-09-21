@@ -8,6 +8,7 @@ import Paper from 'material-ui/Paper';
 import IconLocationSearching from 'material-ui/svg-icons/device/location-searching';
 import IconLocationStore from 'material-ui/svg-icons/action/store';
 import IconDirectionsCar from 'material-ui/svg-icons/maps/directions-car';
+// import IconLocationOn from 'material-ui/svg-icons/maps/directions-car';
 
 
 
@@ -19,9 +20,9 @@ import VehiclePostsIndex from '../VehiclePosts/vehicle_posts_index';
 import CarsOutside from '../CarsOutside/CarsOutside.js';
 
 
-const recentsIcon = <FontIcon className="material-icons"></FontIcon>;
-const favoritesIcon = <FontIcon className="material-icons"></FontIcon>;
-const nearbyIcon = <IconLocationOn />;
+// const recentsIcon = <FontIcon className="material-icons"></FontIcon>;
+// const favoritesIcon = <FontIcon className="material-icons"></FontIcon>;
+// const nearbyIcon = <IconLocationOn />;
 
 const recentsIcon = <IconLocationSearching />;
 const favoritesIcon = <IconLocationStore />;
