@@ -50,9 +50,7 @@ module.exports={
     let {units,offset}=req.query;
     let employees=req.query.employees
 
-    if(employees==='null'){
-
-    }else if(employees!==undefined){
+    if(employees!==undefined){
       employees=employees.split(',')
       employees=employees.map(cur=>Number(cur));
     };
