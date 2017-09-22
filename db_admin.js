@@ -11,11 +11,15 @@ module.exports={
 
     let {start,end}=req.params;
     let {units,offset}=req.query;
+    let employees=req.query.employees.split(',');
+
+
 
     start=Number(start);
     end=Number(end);
     units=Number(units);
     offset=Number(offset);
+
 
     const dbInstance=req.app.get('db');
     let startTime=new Date(start);
@@ -62,5 +66,7 @@ module.exports={
     })
 
   },
+
+
 
 }
