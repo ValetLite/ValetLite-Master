@@ -4,7 +4,6 @@ import baseUnits from './units';
 import axios from 'axios';
 
 let port=5555;
-let checkboxes=[];
 
 class charts extends Component{
   constructor(props){
@@ -84,14 +83,22 @@ class charts extends Component{
     this.getChartData(response.data);
     const employees=await axios.get(`http://localhost:5555/api/valets`);
     this.setState({employees:employees.data});
-    checkboxes=[];
-    checkboxes.push(0);
-    employees.data.forEach(cur=>checkboxes.push(cur));
+    let allBox=document.getElementsByClassName("allCheckBox")[0];
+    allBox.checked=true;
+    let boxes=Array.from(document.getElementsByClassName("employeeCheckBox"));
+    boxes.forEach(cur=>{cur.checked=true});
+
   }
 
   checkboxClicked(theEmployee,event,other){
     let boxes=Array.from(document.getElementsByClassName("employeeCheckBox"));
     let allBox=document.getElementsByClassName("allCheckBox")[0];
+
+    if(theEmployee==="none"){
+      allBox.checked=false;
+      boxes.forEach(cur=>cur.checked=false);
+    }
+
     if(allBox.checked){
       if(theEmployee==="all"){
         boxes.forEach(cur=>{cur.checked=true});
@@ -125,14 +132,14 @@ class charts extends Component{
 
   render(){
     const workers=this.state.employees.map(cur=><div><input className="employeeCheckBox" id={cur.id}  onClick={this.checkboxClicked.bind(this,cur.id)} type="checkbox"/><label> {cur.name} </label></div>);
-
     return <div>
       <button onClick={this.handleClick.bind(this,new Date(new Date().getTime()-30*baseUnits.DAY),new Date(),baseUnits.DAY, baseUnits.offsets.DAY)}>Last Month</button>
       <button onClick={this.handleClick.bind(this,new Date(new Date().getTime()-7*baseUnits.DAY),new Date(),baseUnits.DAY,baseUnits.offsets.DAY)}>Last Week</button>
       <button onClick={this.handleClick.bind(this,new Date(new Date().getTime()-3*baseUnits.DAY),new Date(),baseUnits.HOUR, baseUnits.offsets.HOUR)}>Last 3 days</button>
       <button onClick={this.handleClick.bind(this,new Date(),new Date(),baseUnits.HOUR, baseUnits.offsets.HOUR)}>Last 24 hours</button>
       <Line data={this.state.chartData} />
-      <input type="checkbox" onClick={this.checkboxClicked.bind(this,"all")} className="allCheckBox"/><label>All</label>
+      <div><button onClick={this.checkboxClicked.bind(this,"none")}>Clear All</button></div>
+      <div><input type="checkbox" onClick={this.checkboxClicked.bind(this,"all")} className="allCheckBox" /><label>All</label></div>
       {workers}
     </div>
   }
