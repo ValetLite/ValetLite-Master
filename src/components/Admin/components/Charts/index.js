@@ -8,8 +8,17 @@ let port=5555;
 class charts extends Component{
   constructor(props){
     super(props)
+
+    let start=new Date();
+    start.setDate(start.getDate()-7);
+    let end=new Date();
     this.state={
-      chartData:props.chartData
+      chartData:props.chartData,
+      currentUnit:baseUnits.DAY,
+      currentOffset:baseUnits.offsets.DAY,
+      currentStart:start,
+      currentEnd:end,
+
     }
   }
 
@@ -39,16 +48,31 @@ class charts extends Component{
     })
   }
 
+  async handleClick(startDay,endDay,units,offset){
+    this.setState({
+      currentUnit:units,
+      currentOffset:offset,
+      currentStart:startDay,
+      currentEnd:endDay,
+    })
+    setTimeout(async()=>{
+
+      const response=await axios.get(`http://localhost:${port}/api/ChartData/${this.state.currentStart.getTime()}/${this.state.currentEnd.getTime()}?units=${this.state.currentUnit}&offset=${this.state.currentOffset}`);
+      this.getChartData(response.data);
+    },1)
+  }
+
   async componentWillMount(){
-    let startTime=new Date('Sept 10 2017');
-    let endTime=new Date();
-    let units=1;
-    const response=await axios.get(`http://localhost:${port}/api/ChartData/${startTime.getTime()}/${endTime.getTime()}?units=86400000&offset=18000000`);
+    const response=await axios.get(`http://localhost:${port}/api/ChartData/${this.state.currentStart.getTime()}/${this.state.currentEnd.getTime()}?units=${this.state.currentUnit}&offset=${this.state.currentOffset}`);
     this.getChartData(response.data);
   }
 
   render(){
     return <div>
+      <button onClick={this.handleClick.bind(this,new Date(new Date().getTime()-30*baseUnits.DAY),new Date(),baseUnits.DAY, baseUnits.offsets.DAY)}>Last Month</button>
+      <button onClick={this.handleClick.bind(this,new Date(new Date().getTime()-7*baseUnits.DAY),new Date(),baseUnits.DAY,baseUnits.offsets.DAY)}>Last Week</button>
+      <button onClick={this.handleClick.bind(this,new Date(new Date().getTime()-3*baseUnits.DAY),new Date(),baseUnits.HOUR, baseUnits.offsets.HOUR)}>Last 3 days</button>
+      <button onClick={this.handleClick.bind(this,new Date(),new Date(),baseUnits.HOUR, baseUnits.offsets.HOUR)}>Last 24 hours</button>
       <Line data={this.state.chartData} />
     </div>
   }

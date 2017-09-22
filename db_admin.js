@@ -19,6 +19,7 @@ module.exports={
 
     const dbInstance=req.app.get('db');
     let startTime=new Date(start);
+
     startTime=new Date(scrub(startTime.getTime(),units,offset)); //Correct the
     let endTime=new Date(end);
 
@@ -57,7 +58,6 @@ module.exports={
           },
         ],
       }
-
       res.status(200).json(toRet);
     })
 
