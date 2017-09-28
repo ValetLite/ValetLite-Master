@@ -17,7 +17,7 @@ export default class RetrieveCar extends Component {
             <TextField id='ret-car-id' hintText='Car ID #' />
           </div>
           <div className='landing-flex'>
-            <RaisedButton label="Retrieve!" primary={true} style={{margin: 12}} />
+            <RaisedButton label="Retrieve!" primary={true} style={{margin: 12}} onClick={() => window.location='/retrieval/carinfo?carID=555'}/>
           </div>
         </div>
         <NavBar selectedIndex={0} />

@@ -5,6 +5,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Login from '../Login/Login';
 // import NavBar from '../Navbar/NavBar2';
 import RetrieveCar from '../RetrieveCar/RetrieveCar.js';
+import RetrievalInfo from '../RetrievalInfo'
 import StoreCar from '../StoreCar/StoreCar.js';
 import VehiclePostsIndex from '../VehiclePosts/vehicle_posts_index';
 // import CarsInside from '../CarsInside/CarsInside.js';
@@ -23,6 +24,7 @@ export default class Routing extends Component{
     return <BrowserRouter>
       <Switch>
         <Route exact path='/' component={Login} />
+        <Route path='/retrieval/carinfo' component={RetrievalInfo} />
         <Route path='/retrieval' component={RetrieveCar} />
         <Route path='/storage' component={StoreCar} />
         <Route path='/carsoutside' component={CarsOutside} />
