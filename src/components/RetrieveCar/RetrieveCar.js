@@ -5,7 +5,21 @@ import TextField from 'material-ui/TextField';
 
 // import navbar from '../Navbar/navbar';
 
+
 export default class RetrieveCar extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      carId:""
+    }
+    console.log("PROPS:");
+    console.log(props);
+  }
+
+  handleChange(event){
+    this.setState({carId:event.target.value})
+  }
+
   render() {
     return (
       <div id='landing-container'>
@@ -14,10 +28,10 @@ export default class RetrieveCar extends Component {
             <h4>Retrieval</h4>
           </div>
           <div className='landing-flex'>
-            <TextField id='ret-car-id' hintText='Car ID #' />
+            <TextField id='ret-car-id' onChange={this.handleChange.bind(this)} hintText='Car ID #' value={this.state.carId}/>
           </div>
           <div className='landing-flex'>
-            <RaisedButton label="Retrieve!" primary={true} style={{margin: 12}} onClick={() => window.location='/retrieval/carinfo?carID=555'}/>
+            <RaisedButton label="Retrieve!" primary={true} style={{margin: 12}} onClick={() => window.location=`/retrieval/carinfo/${this.state.carId}`}/>
           </div>
         </div>
         <NavBar selectedIndex={0} />

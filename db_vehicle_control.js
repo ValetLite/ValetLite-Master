@@ -25,7 +25,7 @@ module.exports = {
   update: ( req, res, next ) => {
     const dbInstance = req.app.get('db');
     const { params, query } = req;
-    dbInstance.update_vehicle([ params.id, query.desc ])
+    dbInstance.update_vehicle([ params.id, query.space ])
       .then( () => res.status(200).send() )
       .catch( (err) => res.status(500).send(err) );
   },

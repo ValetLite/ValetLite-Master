@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import NavBar from '../NavBar/NavBar2';
 import axios from 'axios';
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 let port =5555;
 
@@ -18,6 +20,7 @@ export default class RetrievalInfo extends Component{
   async componentWillMount(){
     if(this.state.idPresent){
       const response=await axios.get(`http://localhost:${port}/api/vehicle/${this.state.carId}`)
+      console.log(`Response to searching for: |${this.state.carId}|`);
       console.log(response);
       if(response.data.length===0){
         console.log("That is not a valid car ID");
@@ -26,7 +29,6 @@ export default class RetrievalInfo extends Component{
         })
       }else{
         let theDatas=response.data[0];
-        let testData={a:1,b:2,c:3}
         this.setState({
           ...theDatas
         })
@@ -36,7 +38,10 @@ export default class RetrievalInfo extends Component{
     }
   }
 
-
+  handleConfirm(){
+    axios.put(`http://localhost:${port}/api/vehicle/${this.state.carId}?space=-1`)
+    window.location=`/retrieval`
+  }
 
   render(){
     return (
@@ -51,10 +56,13 @@ export default class RetrievalInfo extends Component{
             {this.state.color}
             {this.state.make}
             {this.state.model}
-            {this.state.space}
+            SPOT: |{this.state.space}|
             {this.state.owner}
             {this.state.plate}
             {this.state.photo}
+          </div>
+          <div className='landing-flex'>
+            <RaisedButton label="Confirm" primary={true} onClick={this.handleConfirm.bind(this)} style={{margin: 12}} />
           </div>
         </div>
         <NavBar selectedIndex={0} />
