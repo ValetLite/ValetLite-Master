@@ -80,6 +80,13 @@ module.exports={
     }
   },
 
+  getCarsParked:(req,res,next)=>{
+    const dbInstance=req.app.get('db')
+    dbInstance.run("select cars_parked_after from actions order by time desc limit 1").then(response=>{
+      res.status(200).json(response);
+    })
+  }
+
 
 
 }

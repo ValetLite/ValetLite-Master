@@ -43,6 +43,7 @@ app.get( '/api/valets', db_valets_control.getAll );
 app.get( '/api/valet/:id', db_valets_control.getOne );
 
 app.get('/api/ChartData/:start/:end',db_admin.getChartData);
+app.get('/api/CarsParked',db_admin.getCarsParked);
 
 
 app.put( '/api/vehicle/:id', db_vehicle_control.update );
