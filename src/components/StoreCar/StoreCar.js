@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import NavBar from '../NavBar/NavBar2';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+
 import axios from 'axios';
 
 let port = 5555;
+
 
 
 export default class StoreCar extends Component {
@@ -29,6 +31,7 @@ export default class StoreCar extends Component {
     this.setState({recommendedSpot:recommendedSpot});
   }
 
+
   customSpotButton() {
     if (this.state.customOption) {
       return (
@@ -41,6 +44,12 @@ export default class StoreCar extends Component {
   }
 
   render() {
+    // function changeOption() {
+    //   this.setState({customOption: true});
+    // }
+
+
+
     return (
       <div id='landing-container'>
         <div id='landing-form'>
@@ -50,6 +59,7 @@ export default class StoreCar extends Component {
           <div className='landing-flex'>
             Recommendation: {this.state.recommendedSpot}
             <RaisedButton label="Use Recommended Spot" primary={true} style={{margin: 12}} />
+
           </div>
           <div className='landing-flex'>
             <h6>OR, choose a custom spot</h6>
