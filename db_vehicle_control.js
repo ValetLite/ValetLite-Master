@@ -36,5 +36,12 @@ module.exports = {
     dbInstance.delete_vehicle([params.id])
       .then( () => res.status(200).send() )
       .catch( () => res.status(500).send() );
-  }
+  },
+
+  getUsedSpaces:(req,res,next)=>{
+    const dbInstance=req.app.get('db');
+    dbInstance.get_used_spaces([])
+      .then((response)=>res.status(200).send(response))
+      .catch((err)=>res.status(500).send(err));
+  },
 };

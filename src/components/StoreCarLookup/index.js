@@ -4,6 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
 
+
 export default class thing extends Component{
   constructor(props){
     super(props);
@@ -11,8 +12,10 @@ export default class thing extends Component{
       carId:""
     }
   }
+
   handleChange(event){
     this.setState({carId:event.target.value})
+
   }
 
   render(){
@@ -29,7 +32,7 @@ export default class thing extends Component{
           <RaisedButton label="Store Car" primary={true} style={{margin: 12}} onClick={() => window.location=`/storage/${this.state.carId}`}/>
         </div>
       </div>
-      <NavBar selectedIndex={0} />
+      <NavBar selectedIndex={1} />
     </div>
   )
   }

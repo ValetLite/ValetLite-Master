@@ -12,8 +12,6 @@ export default class RetrieveCar extends Component {
     this.state={
       carId:""
     }
-    console.log("PROPS:");
-    console.log(props);
   }
 
   handleChange(event){
