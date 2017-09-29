@@ -17,6 +17,7 @@ import ValetsIndex from '../Valets/valets_index';
 import VehiclePostsNew from '../VehiclePosts/vehicle_posts_new';
 import VehiclePostsShow from '../VehiclePosts/vehicle_posts_show';
 import Admin from '../Admin'
+import StoreCarLookup from '../StoreCarLookup'
 
 export default class Routing extends Component{
   render(){
@@ -26,7 +27,8 @@ export default class Routing extends Component{
         <Route exact path='/' component={Login} />
         <Route path='/retrieval/carinfo' component={RetrievalInfo} />
         <Route path='/retrieval' component={RetrieveCar} />
-        <Route path='/storage' component={StoreCar} />
+        <Route path='/storage/:id' component={StoreCar} />
+        <Route path='/storage' component={StoreCarLookup} />
         <Route path='/carsoutside' component={CarsOutside} />
         <Route path='/valets/new' component={ValetAdd} />
         <Route path='/valets/:id' component={ValetDetails} />
