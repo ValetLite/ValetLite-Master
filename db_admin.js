@@ -9,21 +9,7 @@ module.exports={
       return scrubVal-correction;
     }
 
-    let {start,end}=req.params;
-    let {units,offset}=req.query;
-
-    start=Number(start);
-    end=Number(end);
-    units=Number(units);
-    offset=Number(offset);
-
-    const dbInstance=req.app.get('db');
-    let startTime=new Date(start);
-
-    startTime=new Date(scrub(startTime.getTime(),units,offset)); //Correct the
-    let endTime=new Date(end);
-
-    dbInstance.run("select * from actions where time>$1 and time<$2 order by time",[startTime,endTime]).then(response=>{
+    const sendIt=(response)=>{
       let labels=[];
       let parkingData=[];
       let retrievingData=[];
@@ -36,7 +22,6 @@ module.exports={
         retrievingData.push(0);
       }
       labels.push(endTime);
-
       response.forEach(cur=>{
         let arraySpot=Math.floor((cur.time.getTime()-startTime.getTime())/units);
         if(cur.action==="park"){
@@ -59,8 +44,49 @@ module.exports={
         ],
       }
       res.status(200).json(toRet);
-    })
+    }
 
+    let {start,end}=req.params;
+    let {units,offset}=req.query;
+    let employees=req.query.employees
+
+    if(employees!==undefined){
+      employees=employees.split(',')
+      employees=employees.map(cur=>Number(cur));
+    };
+
+
+    start=Number(start);
+    end=Number(end);
+    units=Number(units);
+    offset=Number(offset);
+
+
+    const dbInstance=req.app.get('db');
+    let startTime=new Date(start);
+
+    startTime=new Date(scrub(startTime.getTime(),units,offset)); //Correct the
+    let endTime=new Date(end);
+
+    if(employees===undefined){
+      dbInstance.run("select * from actions where time>$1 and time<$2 order by time",[startTime,endTime]).then(sendIt)
+    }else {
+      dbInstance.run("select * from actions where time>$1 and time<$2 order by time",[startTime,endTime]).then(response=>{
+        let filtered=response.filter(cur=>{
+          return employees.includes(cur.employee_id);
+        });
+        sendIt(filtered);
+      })
+    }
   },
+
+  getCarsParked:(req,res,next)=>{
+    const dbInstance=req.app.get('db')
+    dbInstance.run("select cars_parked_after from actions order by time desc limit 1").then(response=>{
+      res.status(200).json(response);
+    })
+  }
+
+
 
 }
